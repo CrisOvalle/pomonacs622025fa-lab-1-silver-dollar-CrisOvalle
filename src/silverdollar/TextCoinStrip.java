@@ -98,11 +98,13 @@ public class TextCoinStrip {
 			return false;
 		}
 
-		if (theStrip.get(start - distance)) {
+		// System.out.println(start - distance);
+		if (start - distance <= 0) {
+			// System.out.println("oops");
 			return false;
 		}
 
-		if (start - distance < 0) {
+		if (theStrip.get(start - distance)) {
 			return false;
 		}
 

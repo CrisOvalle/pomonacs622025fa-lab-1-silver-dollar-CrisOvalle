@@ -88,24 +88,23 @@ public class TextCoinStrip {
 	 * @return true if the move is legal
 	 */
 	public boolean isLegalMove(int start, int distance) {
-		if (start == 0) {
-			System.out.println("2");
+		if (start <= 0) {
+			return false;
+		}
+		if (distance <= 0) {
 			return false;
 		}
 
 		if (theStrip.get(start - distance)) {
-			System.out.println("2");
 			return false;
 		}
 
 		if (start - distance < 0) {
-			System.out.println("2");
 			return false;
 		}
 
 		for (int i = start - 1; i > start - distance; i--) {
 			if (theStrip.get(i)) {
-				System.out.println("2");
 				return false;
 			}
 		}

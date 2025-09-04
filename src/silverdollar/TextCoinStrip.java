@@ -46,7 +46,6 @@ public class TextCoinStrip {
 
 		// TODO: should we store the number of coins?
 		coinCount = coins;
-		System.out.println(coinCount);
 
 		// place #coins randomly on the strip
 		Random rand = new Random();
@@ -88,10 +87,14 @@ public class TextCoinStrip {
 	 * @return true if the move is legal
 	 */
 	public boolean isLegalMove(int start, int distance) {
-		if (start <= 0) {
+		if (start >= theStrip.size() || start < 0) {
 			return false;
 		}
-		if (distance <= 0) {
+		if (distance >= theStrip.size() || distance <= 0) {
+			return false;
+		}
+
+		if (!theStrip.get(start)) {
 			return false;
 		}
 
@@ -134,7 +137,6 @@ public class TextCoinStrip {
 	public boolean gameIsOver() {
 		for (int i = 0; i < coinCount; i++) {
 			if (theStrip.get(i) == false) {
-				System.out.println(theStrip.get(i));
 				return false;
 			}
 		}
